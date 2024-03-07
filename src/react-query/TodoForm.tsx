@@ -5,7 +5,7 @@ import axios from 'axios';
 
 const TodoForm = () => {
   const queryClient = useQueryClient();
-  const addTodo = useMutation({
+  const addTodo = useMutation<Todo, Error, Todo>({
     mutationFn: (todo: Todo) => axios
       .post<Todo>('https://jsonplaceholder.typicode.com/todos', todo)
       .then(res => res.data),
@@ -32,6 +32,11 @@ const TodoForm = () => {
           userId: 1
         })
     }}>
+      {addTodo.error &&
+        <div className='alert alert-danger'>
+          {addTodo.error.message}
+        </div>
+      }
       <div className="col">
         <input ref={ref} type="text" className="form-control" />
       </div>
