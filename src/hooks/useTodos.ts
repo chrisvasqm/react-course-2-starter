@@ -13,7 +13,7 @@ const useTodos = () => {
         queryKey: ['todos'],
         queryFn: () => axios
             .get<Todo[]>('https://jsonplaceholder.typicode.com/todos')
-            .then(res => res.data)
+            .then(response => response.data)
     })
 }
 
