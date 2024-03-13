@@ -9,13 +9,11 @@ export interface Todo {
 }
 
 const useTodos = () => {
-    const fetchTodos = () => axios
-        .get<Todo[]>('https://jsonplaceholder.typicode.com/todos')
-        .then(res => res.data);
-
     return useQuery<Todo[], Error>({
         queryKey: ['todos'],
-        queryFn: fetchTodos
+        queryFn: () => axios
+            .get<Todo[]>('https://jsonplaceholder.typicode.com/todos')
+            .then(res => res.data)
     })
 }
 
