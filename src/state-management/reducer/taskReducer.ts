@@ -14,7 +14,7 @@ interface ClearTask {
     type: 'CLEAR'
 }
 
-type TaskAction = AddTask | DeleteTask | ClearTask;
+export type TaskAction = AddTask | DeleteTask | ClearTask;
 
 export default (tasks: Task[], action: TaskAction) => {
     if (action.type === 'ADD')
