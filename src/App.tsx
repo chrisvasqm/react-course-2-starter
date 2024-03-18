@@ -1,9 +1,9 @@
 import './App.css';
-import Counter from './state-management/Counter';
+import LoginStatus from './state-management/LoginStatus';
 
 function App() {
   return <>
-    <Counter />
+    <LoginStatus />
   </>
 }
 
