@@ -1,4 +1,5 @@
-import { useContext, useReducer } from 'react';
+import { useContext } from 'react';
+import AuthContext from './contexts/authContext';
 import TaskContext from './contexts/taskContext';
 
 export interface Task {
@@ -8,9 +9,11 @@ export interface Task {
 
 const TaskList = () => {
   const { tasks, dispatch } = useContext(TaskContext);
+  const { user } = useContext(AuthContext);
 
   return (
     <>
+      <p>User: {user}</p>
       <button
         onClick={() => dispatch({ type: 'ADD', task: { id: Date.now(), title: 'Task ' + Date.now() } })}
         className="btn btn-primary my-3"
