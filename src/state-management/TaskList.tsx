@@ -1,6 +1,5 @@
-import { useContext } from 'react';
-import AuthContext from './contexts/authContext';
-import TaskContext from './contexts/taskContext';
+import useAuth from './hooks/useAuth';
+import useTasks from './hooks/useTasks';
 
 export interface Task {
   id: number;
@@ -8,8 +7,8 @@ export interface Task {
 }
 
 const TaskList = () => {
-  const { tasks, dispatch } = useContext(TaskContext);
-  const { user } = useContext(AuthContext);
+  const { tasks, dispatch } = useTasks();
+  const { user } = useAuth();
 
   return (
     <>
