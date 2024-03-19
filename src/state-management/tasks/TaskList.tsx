@@ -1,6 +1,6 @@
 import { useContext } from 'react';
-import useAuth from '../hooks/useAuth';
 import TaskContext from './taskContext';
+import { useAuth } from '../auth';
 
 export interface Task {
   id: number;
