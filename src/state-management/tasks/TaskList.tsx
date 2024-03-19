@@ -1,10 +1,13 @@
-import useAuth from './hooks/useAuth';
-import useTasks from './hooks/useTasks';
+import { useContext } from 'react';
+import useAuth from '../hooks/useAuth';
+import TaskContext from './taskContext';
 
 export interface Task {
   id: number;
   title: string;
 }
+
+const useTasks = () => useContext(TaskContext);
 
 const TaskList = () => {
   const { tasks, dispatch } = useTasks();
