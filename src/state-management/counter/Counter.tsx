@@ -1,6 +1,5 @@
 import useCounterStore from './store';
 
-
 const Counter = () => {
   const { counter, increment, reset } = useCounterStore();
 

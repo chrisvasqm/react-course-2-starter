@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import TaskContext from './taskContext';
-import { useAuth } from '../auth';
+import useAuthStore from '../auth/store';
 
 export interface Task {
   id: number;
@@ -11,7 +11,7 @@ const useTasks = () => useContext(TaskContext);
 
 const TaskList = () => {
   const { tasks, dispatch } = useTasks();
-  const { user } = useAuth();
+  const { user } = useAuthStore();
 
   return (
     <>
